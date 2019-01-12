@@ -45,6 +45,15 @@ def task_1():
 # * при желании и понимании воспользуйтесь синтаксисом кортежей Python.
 
 
+def task_2():
+
+    value_one = input('Enter some first value: ')
+    value_two = input('Enter some second value: ')
+
+    value_one, value_two = value_two, value_one
+
+    print(value_one, value_two, sep='\n')
+
 
 # Задача-3: Напишите программу, вычисляющую корни квадратного уравнения вида
 # ax² + bx + c = 0.
