@@ -9,6 +9,7 @@ __author__ = 'Сергей Иванович Мирошкин (miroshkin.mirus@ya
 
 
 def task_first():
+
     number = str(input('Enter some integer:\n'))
     answer = []
     length = len(number)
@@ -28,14 +29,16 @@ def task_first():
 # Не нужно решать задачу так:
 # print("a = ", b, "b = ", a) - это неправильное решение!
 
-value_one = input('Enter some first value:\n')
-value_two = input('Enter some second value:\n')
 
-buffer = value_one
-value_one = value_two
-value_two = buffer
+def task_second():
+    value_one = input('Enter some first value:\n')
+    value_two = input('Enter some second value:\n')
 
-print(value_one, "\n", value_two)
+    buffer = value_one
+    value_one = value_two
+    value_two = buffer
+
+    print(value_one, value_two, sep='\n')
 
 
 # Задача-3: Запросите у пользователя его возраст.
@@ -43,20 +46,30 @@ print(value_one, "\n", value_two)
 # иначе "Извините, пользование данным ресурсом только с 18 лет"
 
 def main():
-    task = 0
+    want = "yes"
 
     while True:
         task = input("Enter task's number which you want to check (integer from one to three or 'no' for exit): ")
-        if isinstance(task, int):
-            if 0 < task < 4:
-                break
-            else:
-                print('You entered incorrect number, please will try again.')
-        else:
-            print('You entered not integer, please will try again.')
 
-    if task == 1:
-        task_first()
-    elif task == 2:
+        if task.lower() == 'no':
+            want = task.lower()
+            break
+        else:
+            try:
+                int(task)
+                task = int(task)
+                if 0 < task < 4:
+                    break
+                else:
+                    print('You entered incorrect number, please will try again.')
+            except ValueError:
+                print('You entered not integer, please will try again.')
+
+    if want == 'yes':
+        if task == 1:
+            task_first()
+        elif task == 2:
+            task_second()
+
 
 main()
