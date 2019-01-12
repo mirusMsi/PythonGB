@@ -1,6 +1,8 @@
 
 __author__ = 'Сергей Иванович Мирошкин (miroshkin.mirus@ya.ru)'
 
+import math
+
 # Задача-1: Дано произвольное целое число, вывести самую большую цифру этого числа.
 # Например, дается x = 58375.
 # Нужно вывести максимальную цифру в данном числе, т.е. 8.
@@ -9,7 +11,6 @@ __author__ = 'Сергей Иванович Мирошкин (miroshkin.mirus@ya
 # Подсказки:
 # * постарайтесь решить задачу с применением арифметики и цикла while;
 # * при желании и понимании решите задачу с применением цикла for.
-
 
 def task_1():
     while True:
@@ -24,9 +25,9 @@ def task_1():
             i = 0
 
             while i < len(number):
-                check = int(number[i:(i + 1)])
-                if maximum < check:
-                    maximum = check
+                answer = int(number[i:(i + 1)])
+                if maximum < answer:
+                    maximum = answer
                 i += 1
 
             print(maximum)
@@ -61,6 +62,63 @@ def task_2():
 # Для вычисления квадратного корня воспользуйтесь функцией sqrt() модуля math:
 # import math
 # math.sqrt(4) - вычисляет корень числа 4
+
+def check(number):
+
+    if number.lower() == 'no':
+        raise SystemExit
+
+    try:
+        int(number)
+        return int(number)
+    except ValueError:
+        pass
+
+    try:
+        float(number)
+        return float(number)
+    except ValueError:
+        pass
+
+    number = "error"
+    print('Wrong enter. Pleas will try again')
+    return number
+
+
+def enter(name):
+
+    while True:
+        entered = check(input('Enter coefficient - ' + name + ': '))
+        if entered != 'error':
+            break
+
+    return entered
+
+
+def task_3():
+
+    print('The program calculates the roots of a square equation.' + '\n' + 'If you want to exit you should enter "no" on any stage.')
+
+    a = enter('a')
+    b = enter('b')
+    c = enter('c')
+
+    accuracy = 2
+
+    amount_roots = b ** 2 - 4 * a * c
+    divider = 2 * a
+
+
+    if amount_roots > 0:
+        root = math.sqrt(amount_roots)
+        x1 = (-b + root) / divider
+        x2 = (-b - root) / divider
+        print("x1 = " + str(round(x1, accuracy)), "x2 = " + str(round(x2, accuracy)), sep="\n")
+    elif amount_roots == 0:
+        x = (-b) / divider
+        print("x = " + str(round(x, accuracy)))
+    else:
+        print("roots is not")
 
 
 def main():
