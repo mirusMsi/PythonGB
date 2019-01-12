@@ -78,7 +78,7 @@ def task_3():
             print('You entered not integer, please will try again.')
 
 
-def main():
+def head():
     want = "yes"
     amount_tasks = 3
     welcome = f"Enter task's number which you want to check (integer from 1 to {amount_tasks} or 'no' for exit): "
@@ -106,4 +106,4 @@ def main():
         fun()
 
 
-main()
+head()
