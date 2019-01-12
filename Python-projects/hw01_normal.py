@@ -11,12 +11,39 @@ __author__ = 'Сергей Иванович Мирошкин (miroshkin.mirus@ya
 # * при желании и понимании решите задачу с применением цикла for.
 
 
+def task_1():
+    while True:
+        number = input('Enter some integer or "no" for exit: ')
+
+        if number.lower() == 'no':
+            break
+
+        try:
+            int(number)
+            maximum = 0
+            i = 0
+
+            while i < len(number):
+                check = int(number[i:(i + 1)])
+                if maximum < check:
+                    maximum = check
+                i += 1
+
+            print(maximum)
+
+            break
+
+        except ValueError:
+            print('You entered not integer, please will try again.')
+
+
 # Задача-2: Исходные значения двух переменных запросить у пользователя.
 # Поменять значения переменных местами. Вывести новые значения на экран.
 # Решите задачу, используя только две переменные.
 # Подсказки:
 # * постарайтесь сделать решение через действия над числами;
 # * при желании и понимании воспользуйтесь синтаксисом кортежей Python.
+
 
 
 # Задача-3: Напишите программу, вычисляющую корни квадратного уравнения вида
