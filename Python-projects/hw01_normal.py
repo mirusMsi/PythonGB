@@ -12,6 +12,7 @@ import math
 # * постарайтесь решить задачу с применением арифметики и цикла while;
 # * при желании и понимании решите задачу с применением цикла for.
 
+
 def task_1():
     while True:
         number = input('Enter some integer or "no" for exit: ')
@@ -97,7 +98,8 @@ def enter(name):
 
 def task_3():
 
-    print('The program calculates the roots of a square equation.' + '\n' + 'If you want to exit you should enter "no" on any stage.')
+    print('The program calculates the roots of a square equation.' + '\n' +
+          'If you want to exit you should enter "no" on any stage.')
 
     a = enter('a')
     b = enter('b')
@@ -107,7 +109,6 @@ def task_3():
 
     amount_roots = b ** 2 - 4 * a * c
     divider = 2 * a
-
 
     if amount_roots > 0:
         root = math.sqrt(amount_roots)
